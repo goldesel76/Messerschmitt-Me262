@@ -1,0 +1,325 @@
+/* Allgemeine Stile (für alle Seiten) */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #EDEDED; /* Hellgrau */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Sicherstellen, dass der Footer am unteren Rand bleibt */
+}
+
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3b5323;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.8rem);
+    padding: 0.5rem 0;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0s linear 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Hover-Bereich für bessere Nutzbarkeit */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0.8rem;
+    background: transparent;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.dropdown-content li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content a {
+    color: #E3E3E3;
+    padding: 0.8rem 1.5rem;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.95em;
+    transition: color 0.3s, background-color 0.3s;
+    position: relative;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Hover-Effekt mit weißer Unterstreichung */
+.dropdown-content a::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: width 0.2s ease;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a:hover::after {
+    width: calc(100% - 3rem);
+}
+
+/* Pfeil über dem Dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent #3b5323 transparent;
+}
+
+
+/* Header */
+header {
+    background-color: #3b5323; /* Olivgrün */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10; /* Header bleibt oben */
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header h1 a {
+    color: #fff; /* Weiß */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header h1 a:hover {
+    color: #ffcc00; /* Gelber Hover-Effekt */
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #E3E3E3; /* grauer Akzent */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff; /* Weiß bei Hover */
+}
+
+/* Einleitung (farbiges Kästchen auf der Startseite) */
+#intro {
+    background-color: #FFFFFF; /* Helles Grau */
+    border-left: 5px solid #3b5323; /* Grüner Akzent */
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto; /* Zentriert das Kästchen */
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1; /* Kästchen unter dem Header */
+    margin-top: -1rem; /* Kästchen beginnt direkt unter dem Header */
+    padding-bottom: 2rem;
+}
+
+#intro img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#intro ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+#intro ul li {
+    margin-bottom: 0.5rem;
+}
+
+#intro ul li a {
+    color: #3b5323; /* Olivgrün */
+    text-decoration: none; /* Unterstreichung entfernen */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+#intro ul li a:hover {
+    color: #ffcc00; /* Gelb bei Hover */
+    text-decoration: underline; /* Unterstreichung bei Hover */
+}
+
+/* Bilder und Bildcontainer */
+.bild-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.bild-container img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Bildunterschriften */
+.bild-beschreibung {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #3b5323; /* Olivgrün */
+    color: #fff;
+    display: flex;
+    justify-content: center; /* Symbole und Text zentrieren */
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 5; /* Footer über dem Kästchen */
+    width: 100%;
+    flex-wrap: wrap; /* Anpassung für kleinere Bildschirme */
+    box-sizing: border-box;
+    margin-top: auto; /* Footer bleibt unten */
+}
+
+/* Footer-Text (Datenschutz & Impressum) – links positioniert */
+.footer-text {
+    position: absolute;
+    left: 2rem;
+}
+.footer-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+.footer-text ul li {
+    font-size: 0.9rem;
+}
+.footer-text ul li a {
+    color: #E3E3E3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-text ul li a:hover {
+    color: #fff;
+}
+
+/* Footer-Navigation – zentriert */
+.footer-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 auto;
+}
+.footer-navigation .nav-button img {
+    width: 40px;
+    height: 40px;
+    filter: invert(1);
+    transition: transform 0.3s;
+}
+.footer-navigation .nav-button:hover img {
+    transform: scale(1.1);
+}
+
+/* Footer-Right (Quellenverzeichnis) – rechts positioniert */
+.footer-right {
+    position: absolute;
+    right: 2rem;
+    font-size: 0.9rem;
+}
+.footer-right a {
+    color: #E3E3E3;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-right a:hover {
+    color: #fff;
+}
+
+
+/* Zurück-zum-Anfang-Button */
+#top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3b5323; /* Olivgrün */
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#top-button:hover {
+    background-color: #ffcc00; /* Gelber Hover-Effekt */
+    transform: scale(1.1); /* Vergrößerung beim Hover */
+}

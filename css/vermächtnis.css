@@ -1,0 +1,346 @@
+/* Allgemeine Stile */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #EBEBEB; /* Helles Beige */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(139, 35, 35, 0.95);
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    margin-top: 0.8rem;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content a {
+    color: #E5E5E5;
+    padding: 0.7rem 1.5rem;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.95em;
+    transition: background-color 0.2s, color 0.2s;
+    position: relative;
+}
+
+/* Hover-Effekt für normale Links im Dropdown */
+.dropdown-content a:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.dropdown-content a:not(.active):hover::after {
+    width: calc(100% - 3rem);
+}
+
+/* Aktive Unterseite im Dropdown */
+.dropdown-content a.active {
+    color: #fff;
+    font-weight: bold;
+    border-bottom: none; /* Entfernt den Standard-Border */
+    padding-bottom: 0.7rem; /* Zurück zum normalen Padding */
+}
+
+.dropdown-content a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    width: calc(100% - 3rem);
+    height: 2px;
+    background-color: #fff;
+    transform: translateX(-50%);
+}
+
+/* Verfeinerter Pfeil über dem Dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(139, 35, 35, 0.95) transparent;
+}
+
+/* Header */
+header {
+    background-color: #8B2323; /* Dunkles Rot */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header h1 a:hover {
+    color: #ffd700; /* Goldener Akzent bei Hover */
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Navigation */
+nav {
+    margin-top: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #E5E5E5; /* Gold */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+nav ul li a.active {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Hauptinhalt */
+main {
+    background-color: #FFFFFF; /* Sehr helles Grau */
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    border-left: 5px solid #8B2323; /* Rote Akzentlinie */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    margin-top: -1rem; /* Kästchen beginnt direkt unter dem Header */
+    padding-bottom: 7rem; /* Genug Platz, um den Footer zu überlappen */
+}
+
+/* Hauptüberschrift (h2) */
+main > h2 {
+    font-size: 1rem; /* Klarere Abgrenzung */
+    font-weight: bold;
+    margin-top: 2.5rem; /* Abstand nach oben */
+    margin-bottom: 2.5rem; /* Abstand nach unten */
+    text-align: center;
+}
+
+/* Unterüberschriften (h2 innerhalb von Artikeln oder Sektionen) */
+article h2,
+section h2 {
+    font-size: 1.5rem; /* Angepasst an die Größe der h3-Überschriften der anderen Unterseite */
+    font-weight: bold;
+    margin-top: 3.5rem; /* Größerer Abstand zum vorherigen Text */
+    margin-bottom: 1rem; /* Kleinerer Abstand zum nachfolgenden Text */
+}
+
+/* Abschnittsüberschriften (h3) */
+main h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem; /* Mehr Abstand nach oben */
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8B2323;
+    padding-bottom: 0.5rem;
+}
+
+/* Absatz-Unterüberschriften (h4) für kleine Unterpunkte */
+main h4 {
+    color: 	#0F0F0F; /* Dunkleres Rot */
+    font-size: 1.1rem; /* Größer als normaler Text, kleiner als h3 */
+    font-weight: bold;
+    margin-top: 2rem; /* Mehr Abstand nach oben, damit sie nicht „verloren“ wirken */
+    margin-bottom: 0.8rem; /* Weniger Abstand nach unten, damit sie klar zum Absatz darunter gehören */
+}
+
+/* Listen */
+main ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+main ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Bilder und Bildcontainer */
+.bild-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.bild-container img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Bildunterschriften */
+.bild-beschreibung {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+    text-align: center;
+}
+
+
+/* Footer (Struktur wie in index.html) */
+footer {
+    background-color: #8B2323; /* Dunkles Rot */
+    color: #fff;
+    display: flex;
+    justify-content: center; /* Zentriert die mittlere Navigation */
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative; /* Wichtig für absolute Positionierung der Kinder */
+    z-index: 5;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto; /* Hält Footer unten */
+}
+
+/* Linke Spalte (Datenschutz/Impressum) */
+.footer-text {
+    position: absolute;
+    left: 2rem; /* Abstand zum linken Rand */
+}
+
+.footer-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-text ul li {
+    font-size: 0.9rem;
+}
+
+.footer-text ul li a {
+    color: #E5E5E5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-text ul li a:hover {
+    color: #fff;
+}
+
+/* Zentrierte Navigation (Home/Next-Buttons) */
+.footer-navigation {
+    display: flex;
+    gap: 2rem; /* Abstand zwischen den Buttons */
+}
+
+.footer-navigation .nav-button img {
+    width: 40px;
+    height: 40px;
+    filter: invert(1);
+    transition: transform 0.3s;
+}
+
+.footer-navigation .nav-button:hover img {
+    transform: scale(1.1);
+}
+
+/* Rechte Spalte (Quellenverzeichnis) */
+.footer-right {
+    position: absolute;
+    right: 2rem; /* Abstand zum rechten Rand */
+    font-size: 0.9rem;
+}
+
+.footer-right a {
+    color: #E5E5E5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-right a:hover {
+    color: #fff;
+}
+
+/* Zurück-zum-Anfang-Button */
+#top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8B2323;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#top-button:hover {
+    background-color: #ffd700;
+    transform: scale(1.1);
+}-wrap: wrap;
+    box-sizing: border-box;
+}

@@ -1,0 +1,419 @@
+/* Allgemeine Stile */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #EBEBEB; /* Helles Beige */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(139, 35, 35, 0.95);
+    min-width: 180px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(100% + 0.8rem); /* Geändert von top: 100% */
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    backdrop-filter: blur(5px);
+    transition: opacity 0.3s, transform 0.3s; /* Verlängerte Transition */
+    opacity: 0;
+}
+
+/* Neue Regel für einen Hover-Bereich */
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0.8rem; /* Entspricht dem margin-top */
+    background: transparent;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+}
+
+/* Neuer Hover-Effekt mit Verzögerung beim Ausblenden */
+.dropdown .dropdown-content {
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s, visibility 0s linear 0.3s;
+    visibility: hidden;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
+    pointer-events: auto;
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.dropdown-content li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-content a {
+    color: #E5E5E5;
+    padding: 0.7rem 1.5rem;
+    display: block;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 0.95em;
+    transition: background-color 0.2s, color 0.2s;
+    position: relative;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Eleganter Hover-Effekt */
+.dropdown-content a::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: width 0.2s ease;
+    transform: translateX(-50%);
+}
+
+.dropdown-content a:hover::after {
+    width: calc(100% - 3rem);
+}
+
+/* Verfeinerter Pfeil über dem Dropdown */
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(139, 35, 35, 0.95) transparent;
+}
+/* Header */
+header {
+    background-color: #8B2323; /* Dunkles Rot */
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+header h1 a:hover {
+    color: #ffd700; /* Goldener Akzent bei Hover */
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+/* Navigation */
+nav {
+    margin-top: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #E5E5E5; /* Gold */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #fff;
+}
+
+nav ul li a.active {
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 2px;
+}
+
+/* Hauptinhalt */
+main {
+    background-color: #FFFFFF; /* Sehr helles Grau */
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+    border-left: 5px solid #8B2323; /* Rote Akzentlinie */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    margin-top: -1rem; /* Kästchen beginnt direkt unter dem Header */
+    padding-bottom: 5rem; /* Genug Platz, um den Footer zu überlappen */
+}
+
+/* Hauptüberschrift (h2) */
+main > h2 {
+    color: #333; /* Rot */
+    font-size: 1rem; /* Klarere Abgrenzung */
+    font-weight: bold;
+    margin-top: 2.5rem; /* Abstand nach oben */
+    margin-bottom: 2.5rem; /* Abstand nach unten */
+    text-align: center;
+}
+
+/* Unterüberschriften (h2 innerhalb von Artikeln oder Sektionen) */
+article h2,
+section h2 {
+    font-size: 1.5rem; /* Angepasst an die Größe der h3-Überschriften der anderen Unterseite */
+    font-weight: bold;
+    margin-top: 3.5rem; /* Größerer Abstand zum vorherigen Text */
+    margin-bottom: 1rem; /* Kleinerer Abstand zum nachfolgenden Text */
+}
+
+/* Abschnittsüberschriften (h3) */
+main h3 {
+    color: #4a1f31; /* Dunkleres Rot */
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 4rem; /* Mehr Abstand nach oben */
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #8B2323;
+    padding-bottom: 0.5rem;
+}
+
+/* Absatz-Unterüberschriften (h4) für kleine Unterpunkte */
+main h4 {
+    color: #8B2323; /* Dunkleres Rot */
+    font-size: 1.1rem; /* Größer als normaler Text, kleiner als h3 */
+    font-weight: bold;
+    margin-top: 2rem; /* Mehr Abstand nach oben, damit sie nicht „verloren“ wirken */
+    margin-bottom: 0.8rem; /* Weniger Abstand nach unten, damit sie klar zum Absatz darunter gehören */
+}
+
+
+
+/* Stile für die Content-Liste */
+main ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 2rem 0;
+}
+
+main ul li {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+main ul li::before {
+    content: "➤";
+    position: absolute;
+    left: 0;
+    color: #8B2323;
+    font-size: 0.9em;
+    transition: transform 0.2s ease;
+}
+
+main ul li a {
+    color: #8B2323;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding: 0.2rem 0;
+}
+
+main ul li a:hover {
+    color: #5a1621;
+    transform: translateX(5px);
+}
+
+main ul li {
+    padding-left: 1.2rem; /* Präziserer Abstand */
+    display: flex; /* Neu für perfektes Alignment */
+    align-items: baseline; /* Ausrichtung an der Basislinie */
+}
+
+main ul li::before {
+    left: -0.2rem; /* Feinjustierung Position */
+    top: 0.15em; /* Vertikale Ausrichtung */
+    font-size: 0.85em; /* Harmonischere Größe */
+    margin-right: 0.5rem; /* Abstand zum Text */
+    transform: translateY(2px); /* Pixelgenaue Ausrichtung */
+}
+
+main ul li a {
+    line-height: 1.4; /* Verbesserte Textausrichtung */
+    padding: 0.3rem 0; /* Gleichmäßigerer Klickbereich */
+    transform-origin: left center; /* Natürlichere Bewegungsachse */
+}
+
+/* ------------------- */
+/* Hover-Effekt-Verfeinerungen */
+/* ------------------- */
+main ul li a:hover {
+    transform: translateX(7px); /* Stärkerer visueller Effekt */
+}
+
+main ul li:hover::before {
+    transform: translateX(5px) translateY(2px); /* Synchronisierte Bewegung */
+}
+
+/* ------------------- */
+/* Responsive Optimierungen */
+/* ------------------- */
+@media (max-width: 768px) {
+    main ul li {
+        padding-left: 1rem; /* Kompakteres Mobile-Layout */
+    }
+    
+    main ul li::before {
+        font-size: 0.8em; /* Kleinere Symbole auf Mobile */
+        top: 0.1em;
+    }
+    
+    main ul li a {
+        font-size: 1rem; /* Einheitliche Schriftgröße */
+    }
+}
+
+/* Footer (Struktur wie in index.html) */
+footer {
+    background-color: #8B2323; /* Dunkles Rot */
+    color: #fff;
+    display: flex;
+    justify-content: center; /* Zentriert die mittlere Navigation */
+    align-items: center;
+    padding: 1rem 2rem;
+    position: relative; /* Wichtig für absolute Positionierung der Kinder */
+    z-index: 5;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: auto; /* Hält Footer unten */
+}
+
+/* Linke Spalte (Datenschutz/Impressum) */
+.footer-text {
+    position: absolute;
+    left: 2rem; /* Abstand zum linken Rand */
+}
+
+.footer-text ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-text ul li {
+    font-size: 0.9rem;
+}
+
+.footer-text ul li a {
+    color: #E5E5E5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-text ul li a:hover {
+    color: #fff;
+}
+
+/* Zentrierte Navigation (Home/Next-Buttons) */
+.footer-navigation {
+    display: flex;
+    gap: 2rem; /* Abstand zwischen den Buttons */
+}
+
+.footer-navigation .nav-button img {
+    width: 40px;
+    height: 40px;
+    filter: invert(1);
+    transition: transform 0.3s;
+}
+
+.footer-navigation .nav-button:hover img {
+    transform: scale(1.1);
+}
+
+/* Rechte Spalte (Quellenverzeichnis) */
+.footer-right {
+    position: absolute;
+    right: 2rem; /* Abstand zum rechten Rand */
+    font-size: 0.9rem;
+}
+
+.footer-right a {
+    color: #E5E5E5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-right a:hover {
+    color: #fff;
+}
+
+/* Zurück-zum-Anfang-Button */
+#top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8B2323;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#top-button:hover {
+    background-color: #ffd700;
+    transform: scale(1.1);
+}-wrap: wrap;
+    box-sizing: border-box;
+}
